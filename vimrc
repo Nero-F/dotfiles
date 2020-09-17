@@ -51,6 +51,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:netrw_banner = 0
 syntax on
 colorscheme onedark
+set background=dark
 " =================================
 
 " ============ FZF ============
