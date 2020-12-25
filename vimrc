@@ -26,11 +26,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { ->fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'https://github.com/joshdick/onedark.vim.git'
-Plug 'Nero-F/vim-tek-header'
+Plug 'junegunn/limelight.vim'
+"Plug 'Nero-F/vim-tek-header'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
 Plug 'preservim/nerdcommenter'
 Plug 'rhysd/vim-clang-format'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+
+" * colorscheme *
+Plug 'liuchengxu/space-vim-dark'
+Plug 'https://github.com/joshdick/onedark.vim.git'
+Plug 'ntk148v/vim-horizon'
+
 
 call plug#end()
 " =================================
@@ -57,7 +65,10 @@ set background=dark
 if &term == 'terminator'
     set background&
 endif
+"let g:space_vim_dark_background = 233
+"colorscheme space-vim-dark
 colorscheme onedark
+"hi Comment cterm=italic
 syntax on
 " =================================
 
@@ -120,7 +131,6 @@ set nowritebackup
 "
 "" Give more space for displaying messages.
 set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
@@ -166,6 +176,7 @@ nnoremap <leader>bl :BLines<cr>
 nnoremap <leader>l :Lines<cr>
 nnoremap <leader>p :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>ag :Ag<cr>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -273,17 +284,36 @@ set splitright
 set splitbelow
 set noswapfile
 set termguicolors
+set cul
 
-" ** Goyo **
+" ** LimeLight **
+nnoremap <leader>ml <Plug>(Limelight)
+
+"** Goyo **
 nnoremap <leader>xz :Goyo<cr>
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " ** Fugitive **
 nnoremap <leader>gf :diffget //2<cr>
 nnoremap <leader>gh :diffget //3<cr>
 nnoremap <leader>gs :G<cr>
+nnoremap <leader>gl :Git log<cr>
+nnoremap <leader>glg :Git log --stat --max-count=10<cr>
+nnoremap <leader>glgg :Git log --graph --max-count=10<cr>
 
 " ** RUNTIMEPATH stuff buffer**
 let $RTP=split(&runtimepath, ",")[0]
 
 " ** ClangFormat **
 noremap <leader>cf :ClangFormat<cr>
+
+" Fold conf
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave, BufLeave, BufWritePost ?* nested silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
+augroup END
+"
+" ** lime light **
