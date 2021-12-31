@@ -14,7 +14,7 @@ set $mod Mod4
 
 # Place all floating window in the center of the screen
 
-for_window [class=".*"] move position center
+for_window [class="Terminator"] floating enable; move position center
 
 for_window [class = "SFML window"] floating enable move position center move to workspace $ws1 ; i3-msg workspace $ws1
 
@@ -40,6 +40,8 @@ bindsym $mod+x exec i3lock-fancy
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+exec --no-startup-id blueman-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -208,7 +210,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && xbacklight > /home/user_na
 # Decrease brightness
 bindsym XF86MonBrighnessDown exec xbacklight -dec 5 && xbacklight > /home/user_name/.config/brightness && $refresh_i3status
 
-exec_always --no-startup-id picom -CGb
+exec --no-startup-id picom --experimental-backends -CGb
 
 # Assigns programs to workspaces
 for_window [class="Chromium"] move to workspace $ws1 ; i3-msg workspace $ws1
