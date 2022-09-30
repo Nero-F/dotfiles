@@ -255,7 +255,7 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "t", 
       function()
-          translate.launch{api_key = 'vfXgaZ-rDyZ8KsEpELjHdxTRMG29CT1HaNA4v97Fmgnq', url = 'https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/eaf24a2a-b933-41ba-933a-1d5b2dcfee07'}
+          translate.launch{api_key = '', url = ''}
       end,
       { description = "run translate prompt", group = "launcher" }),
     awful.key({}, 'XF86AudioRaiseVolume',
