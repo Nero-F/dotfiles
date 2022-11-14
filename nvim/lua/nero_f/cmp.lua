@@ -37,8 +37,9 @@ cmp.setup {
 	sources = {
 		{ name = "nvim_lsp"},
 		{ name = "path" },
-		{ name = "zsh" },
-		{ name = "buffer", keyword_length = 3 },
+		{ name = "luasnip" },
+		{ name = "buffer", keyword_length = 2 },
+		--{ name = "zsh" },
 	},
 	formatting = {
 		format = lspkind.cmp_format {
@@ -50,11 +51,11 @@ cmp.setup {
 			}
 		}
 	},
-        --snippet = {
-            --expand = function(args)
-                --vim.fn["vsnip#anonymous"](args.body)
-            --end,
-        --},
+        snippet = {
+            expand = function(args)
+                require'luasnip'.lsp_expand(args.body)
+            end,
+        },
 	experimental = {
 		native_menu = false,
 		ghost_text = true,

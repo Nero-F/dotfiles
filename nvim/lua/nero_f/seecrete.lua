@@ -1,9 +1,11 @@
- local M = {}
+local M = {}
 
 M.search_dotfiles = function()
 	require("telescope.builtin").find_files({
-		prompt_title = "< .NeoVim >",
-		cwd = "~/.config/nvim/",
+        prompt_title = "< config files >",
+        cwd = "~/.config/nvim/lua/nero_f",
+        layout_strategy = "vertical",
+        theme = "dropdown"
 	})
 end
 

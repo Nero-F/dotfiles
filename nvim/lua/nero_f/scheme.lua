@@ -1,14 +1,51 @@
-local gset = vim.api.nvim_set_var
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'iceberg_dark',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
 
-gset('airline#extensions#tabline#enabled', 1)
-gset('airline_powerline_fonts', 1)
+require("tokyonight").setup({
+  transparant = true,
+  styles = {
+    sidebars = "dark"
+  },
+  sidebars = {"packer"}
+})
 
-
-gset('tokyonight_style', 'night')
-gset('tokyonight_enable_italic', 1)
-gset('tokyonight_cursor', 'red')
-gset('tokyonight_current_word', 'bold')
-gset('tokyonight_transparent_background', 1)
-
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme tokyonight-night]]
 

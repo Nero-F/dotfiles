@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/auto-pairs",
@@ -99,10 +104,25 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["comment.nvim"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/comment.nvim",
     url = "https://github.com/numToStr/comment.nvim"
+  },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["epitech.nvim"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/epitech.nvim",
+    url = "/home/nero_f/Projects/vim/epitech.nvim"
   },
   ["goyo.vim"] = {
     loaded = true,
@@ -113,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -144,15 +169,15 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["one-small-step-for-vimkind"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/one-small-step-for-vimkind",
+    url = "https://github.com/jbyuki/one-small-step-for-vimkind"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  playground = {
-    loaded = true,
-    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -164,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -174,15 +204,10 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight-vim"] = {
+  ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/tokyonight-vim",
-    url = "https://github.com/ghifarit53/tokyonight-vim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,

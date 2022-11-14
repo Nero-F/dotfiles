@@ -1,7 +1,10 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+  use '/home/nero_f/Projects/vim/epitech.nvim'
   use 'wbthomason/packer.nvim'
+
+  use 'stevearc/dressing.nvim'
 
   use 'jiangmiao/auto-pairs'
   use 'numToStr/comment.nvim'
@@ -16,6 +19,8 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
+  use 'simrat39/rust-tools.nvim'
+
   use 'mfussenegger/nvim-dap'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
@@ -25,15 +30,23 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use {
+    "L3MON4D3/LuaSnip",
+    tag = "v<CurrentMajor>.*"
+  }
+  use 'saadparwaiz1/cmp_luasnip'
 
-  use 'ghifarit53/tokyonight-vim'
-  use 'vim-airline/vim-airline'
-  use 'kyazdani42/nvim-web-devicons'
-
+  use 'folke/tokyonight.nvim'
 
   use {
-	  'nvim-treesitter/nvim-treesitter',
-	  run = ':TSUpdate'
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  use 'nvim-treesitter/playground'
-end)  
+  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+  use 'jbyuki/one-small-step-for-vimkind'
+end)
