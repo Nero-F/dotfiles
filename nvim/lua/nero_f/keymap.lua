@@ -74,11 +74,16 @@ nmap("<leader>r", "<cmd>lua require('plenary.reload').reload_module('epitech') <
 
 -- DAP
 
-nmap('<F8>', [[:lua require"dap".toggle_breakpoint()<CR>]])
+nmap('<leader>db', [[:lua require"dap".toggle_breakpoint()<CR>]])
+nmap('<leader>dB', [[:lua require"dap".set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>]])
+-- nmap('<leader>lp', [[:lua require"dap".set_breakpoint(nil, nil, vim.fn.input('Log point message: ') )<CR>]])
+-- nmap('<leader>dr', [[:lua require"dap".repl.open()<CR>]])
 nmap('<F9>', [[:lua require"dap".continue()<CR>]])
 nmap('<F10>', [[:lua require"dap".step_over()<CR>]])
 nmap('<S-F10>', [[:lua require"dap".step_into()<CR>]])
 nmap('<F12>', [[:lua require"dap.ui.widgets".hover()<CR>]])
+
+nmap('<F5>', [[:lua require"osv".launch({port = 8086})<CR>]])
 nmap('<F5>', [[:lua require"osv".launch({port = 8086})<CR>]])
 
 --------------------------------------------------------------------------------------------
