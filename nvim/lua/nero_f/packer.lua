@@ -1,7 +1,9 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  use '/home/nero_f/Projects/vim/epitech.nvim'
+  -- use '/home/nero_f/Projects/vim/epitech.nvim'
+  use 'Nero-F/epitech.nvim'
+  use 'wbthomason/packer.nvim'
   use 'wbthomason/packer.nvim'
 
   use 'stevearc/dressing.nvim'
@@ -10,7 +12,7 @@ return require('packer').startup(function(use)
   use 'numToStr/comment.nvim'
   use 'junegunn/goyo.vim'
 
-  use 'tpope/vim-surround' 
+  use 'tpope/vim-surround'
   use 'tpope/vim-obsession'
   use 'tpope/vim-fugitive'
 
@@ -21,7 +23,6 @@ return require('packer').startup(function(use)
 
   use 'simrat39/rust-tools.nvim'
 
-  use 'mfussenegger/nvim-dap'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'onsails/lspkind-nvim' -- pictograms 
@@ -48,5 +49,19 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
   use 'jbyuki/one-small-step-for-vimkind'
+  use 'theHamsta/nvim-dap-virtual-text'
+
+  use {'iamcco/markdown-preview.nvim'}
+  -- use 'hinz/vim-startify'
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function()
+      require("alpha").setup(require('start_theme').config)
+    end
+  }
+
 end)
