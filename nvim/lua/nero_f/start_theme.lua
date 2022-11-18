@@ -1,5 +1,4 @@
-local alpha = require'alpha'
-local th = require'nero_f.theme'
+local th = require('nero_f.theme')
 th.section.header.opts.position = "center"
 
 th.section.top_buttons.val = {
@@ -10,4 +9,5 @@ th.section.mru.val = { { type = "padding", val = 0 } }
 th.section.bottom_buttons.val = {
   th.button( "q", "  Quit NVIM" , ":qa<CR>"),
 }
-return th
+
+require('alpha').setup(th.config)

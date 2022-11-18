@@ -1,8 +1,8 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- use '/home/nero_f/Projects/vim/epitech.nvim'
-  use 'Nero-F/epitech.nvim'
+  use '/home/nero_f/Projects/vim/epitech.nvim'
+  -- use 'Nero-F/epitech.nvim'
   use 'wbthomason/packer.nvim'
   use 'wbthomason/packer.nvim'
 
@@ -59,9 +59,7 @@ return require('packer').startup(function(use)
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require("alpha").setup(require('start_theme').config)
-    end
+    config = nil
   }
 
 end)
