@@ -14,7 +14,10 @@ local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batterya
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local translate = require("awesome-wm-widgets.translate-widget.translate")
+local spotify_shell = require("awesome-wm-widgets.spotify-shell.spotify-shell")
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
 
+--local tbm_widget = require("awesome-wm-widgets.tbm-widget.tbm")
 
 local wibox = require("wibox")
 -- Theme handling library
@@ -55,6 +58,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.wallpaper = "/home/nero_f/Pictures/sunred.jpg"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"
@@ -221,9 +225,11 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+	    spotify_widget(),
 	    volume_widget{
 		    widget_type = 'arc'
 	    },
+	    --tbm_widget(),
 	    batteryarc_widget({
 		    show_current_level = true,
 	    }),
@@ -275,6 +281,8 @@ globalkeys = gears.table.join(
       volume_widget.toggle,
       {description = 'toggle mute', group = 'hotkeys'}
     ),
+    awful.key({ modkey, "Shift" }, "x", function () awful.util.spawn("i3lock-fancy", false) end,
+      {description = "lock screen", group = "client"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -300,13 +308,13 @@ globalkeys = gears.table.join(
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+    awful.key({ modkey, "Control"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey, "Control"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey, "Shift" }, "l", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey, "Shift" }, "h", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
@@ -331,9 +339,9 @@ globalkeys = gears.table.join(
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "k",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, "j",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, "k",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
@@ -375,7 +383,11 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey }, "m", 
+	      function () 
+		spotify_shell.launch() 
+	      end, {description = "spotify shell", group = "music"})
 )
 
 clientkeys = gears.table.join(
@@ -571,8 +583,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Gaps
 
 beautiful.useless_gap = 5
-
-
--- Autostart
-awful.spawn.with_shell("picom --experimental-backends")
-awful.spawn.with_shell("feh --bg-scale ~/Pictures/sunred.jpg")
