@@ -14,6 +14,8 @@ local function on_attach(client, bufnr)
 	vim.keymap.set('n', '<C-d>k', vim.diagnostic.goto_next, opts)
 	vim.keymap.set('n', '<C-d>j', vim.diagnostic.goto_prev, opts)
 	vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end)
+
 end
 
 local lsp_installer = require('nvim-lsp-installer')
@@ -35,7 +37,7 @@ lsp_installer.on_server_ready(function(server)
   if server.name == "rust_analyzer" then
     opts = {
       on_attach = on_attach,
-      checkOnSave = { enable = false },
+      checkOnSave = { enable = false, command = "clippy" },
     }
     require("rust-tools").setup {
       server = vim.tbl_deep_extend("force", server:get_default_options(), opts),

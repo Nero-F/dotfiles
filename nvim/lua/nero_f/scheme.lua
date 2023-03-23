@@ -38,14 +38,3 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
-
-require("tokyonight").setup({
-  transparant = true,
-  styles = {
-    sidebars = "dark"
-  },
-  sidebars = {"packer"}
-})
-
-vim.cmd[[colorscheme tokyonight-night]]
-

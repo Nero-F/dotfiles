@@ -80,7 +80,6 @@ _G.packer_plugins = {
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["alpha-nvim"] = {
-    config = { "\27LJ\2\nV\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\16start_theme\nsetup\nalpha\frequire\0" },
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
@@ -120,20 +119,20 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/comment.nvim",
     url = "https://github.com/numToStr/comment.nvim"
   },
-  ["dressing.nvim"] = {
-    loaded = true,
-    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/dressing.nvim",
-    url = "https://github.com/stevearc/dressing.nvim"
-  },
   ["epitech.nvim"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/epitech.nvim",
-    url = "https://github.com/Nero-F/epitech.nvim"
+    url = "/home/nero_f/Projects/vim/epitech.nvim"
   },
   ["goyo.vim"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/goyo.vim",
     url = "https://github.com/junegunn/goyo.vim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -195,6 +194,11 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/one-small-step-for-vimkind",
     url = "https://github.com/jbyuki/one-small-step-for-vimkind"
   },
+  ["onedarkpro.nvim"] = {
+    loaded = true,
+    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
+    url = "https://github.com/olimorris/onedarkpro.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -225,11 +229,6 @@ _G.packer_plugins = {
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/nero_f/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -248,10 +247,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\nV\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\16start_theme\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

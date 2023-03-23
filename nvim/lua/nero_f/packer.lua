@@ -4,18 +4,18 @@ return require('packer').startup(function(use)
   use '/home/nero_f/Projects/vim/epitech.nvim'
   -- use 'Nero-F/epitech.nvim'
   use 'wbthomason/packer.nvim'
-  use 'wbthomason/packer.nvim'
-
-  use 'stevearc/dressing.nvim'
 
   use 'jiangmiao/auto-pairs'
   use 'numToStr/comment.nvim'
   use 'junegunn/goyo.vim'
 
+  use 'olimorris/onedarkpro.nvim'
+
   use 'tpope/vim-surround'
   use 'tpope/vim-obsession'
   use 'tpope/vim-fugitive'
 
+  use "lukas-reineke/indent-blankline.nvim"
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -36,8 +36,6 @@ return require('packer').startup(function(use)
     tag = "v<CurrentMajor>.*"
   }
   use 'saadparwaiz1/cmp_luasnip'
-
-  use 'folke/tokyonight.nvim'
 
   use {
     'nvim-lualine/lualine.nvim',

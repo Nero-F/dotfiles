@@ -12,5 +12,6 @@ require("nero_f.setup")
 require("nero_f.plenary")
 require("nero_f.dap")
 require("nero_f.start_theme")
+require("nero_f.indent_blankline")
 
 require('epitech').setup()

@@ -1,22 +1,22 @@
 vim.g.mapleader=','
 
-function map(mode, shortcut, command)
+local function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = false })
 end
 
-function nmap(shortcut, command)
+local function nmap(shortcut, command)
   map('n', shortcut, command)
 end
 
-function imap(shortcut, command)
+local function imap(shortcut, command)
   map('i', shortcut, command)
 end
 
-function tmap(shortcut, command)
+local function tmap(shortcut, command)
   map('t', shortcut, command)
 end
 
-function vmap(shortcut, command)
+local function vmap(shortcut, command)
   map('v', shortcut, command)
 end
 
@@ -56,9 +56,6 @@ nmap("<A-j>", ":m .+1<CR>==")
 nmap("<A-k>", ":m .-2<CR>==")
 nmap("<leader>t", "<Plug>PlenaryTestFile")
 
--- need a change
-nmap("<leader>ev", ":tabnew $MYVIMRC<cr>")
-nmap("<leader>evs", ":vsplit $MYVIMRC<cr>")
 nmap("<leader>sv", ":source $MYVIMRC<cr>")
 
 -- Telescope
@@ -67,24 +64,20 @@ nmap("<leader>ff", "<cmd>Telescope find_files<cr>")
 nmap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nmap("<leader>b", "<cmd>Telescope buffers<cr>")
 nmap("<C-s>", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-nmap("<leader>fb", "<cmd>Telescope file_browser<cr>")
+nmap("<leader>fd", "<cmd>Telescope diagnostics<cr>")
 nmap("<leader>fh", "<cmd>Telescope help_tags<cr>")
 nmap("<leader>frc", "<cmd>lua require('nero_f.seecrete').search_dotfiles()<cr>")
-nmap("<leader>r", "<cmd>lua require('plenary.reload').reload_module('epitech') <bar> lua require('epitech')<cr>")
 
 -- DAP
-
-nmap('<leader>db', [[:lua require"dap".toggle_breakpoint()<CR>]])
-nmap('<leader>dB', [[:lua require"dap".set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>]])
+-- nmap('<leader>db', [[:lua require"dap".toggle_breakpoint()<CR>]])
+-- nmap('<leader>dB', [[:lua require"dap".set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>]])
 -- nmap('<leader>lp', [[:lua require"dap".set_breakpoint(nil, nil, vim.fn.input('Log point message: ') )<CR>]])
 -- nmap('<leader>dr', [[:lua require"dap".repl.open()<CR>]])
-nmap('<F9>', [[:lua require"dap".continue()<CR>]])
-nmap('<F10>', [[:lua require"dap".step_over()<CR>]])
-nmap('<S-F10>', [[:lua require"dap".step_into()<CR>]])
-nmap('<F12>', [[:lua require"dap.ui.widgets".hover()<CR>]])
-
-nmap('<F5>', [[:lua require"osv".launch({port = 8086})<CR>]])
-nmap('<F5>', [[:lua require"osv".launch({port = 8086})<CR>]])
+-- nmap('<leader>dc', [[:lua require"dap".continue()<CR>]])
+-- nmap('<leader>dl', [[:lua require"dap".step_over()<CR>]])
+-- nmap('<leader>dj', [[:lua require"dap".step_into()<CR>]])
+-- nmap('<F12>', [[:lua require"dap.ui.widgets".hover()<CR>]])
+-- nmap('<F5>', [[:lua require"osv".launch({port = 8086})<CR>]])
 
 --------------------------------------------------------------------------------------------
 
@@ -92,3 +85,4 @@ vmap("<A-j>", ":m '>+1<CR>gv=gv")
 vmap("<A-k>", ":m '<-2<CR>gv=gv")
 vmap("q", "<Esc>")
 
+nmap("<leader>cd", ":windo lcd<CR>")

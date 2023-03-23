@@ -1,11 +1,11 @@
 function _G.ReloadConfig()
-  local pkgs = { "epitech.utils", "epitech.header", "epitech.coding_style", "epitech.config", "epitech" }
-
+  local pkgs = { "epitech.loader", "epitech.test_confirm","epitech.utils", "epitech.header",  "epitech.config", "epitech.coding_style", "epitech" }
   for _, pkg in pairs(pkgs) do
     P(pkg)
     package.loaded[pkg] = nil
     require(pkg)
   end
+  require("epitech").setup()
   dofile(vim.env.MYVIMRC)
 end
 
